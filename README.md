@@ -1,5 +1,22 @@
 # BSS
 
+Novel approach:
+
+Changing Max Likelihood FastICA from:
+G = Sk.*tanh(Sk.^2);
+Gp = 1-tanh(Sk.^2);
+
+to
+
+G = Sk.*tanh(cos(Sk));
+Gp = 1-tanh(cos(Sk.^2));
+
+maps the input to tanh function to unbiased range of \[-1,1\]   
+
+Run: Test_ICA.m : TEST-20211214T080911Z-001/TEST/Test_ICA.m
+Change in :  fastICA.m : TEST-20211214T080911Z-001/TEST/fastICA.m
+
+
 Results:
 
 
